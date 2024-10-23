@@ -1,0 +1,41 @@
+#include <iostream> // Include the iostream library for input and output
+
+int main() {
+    // Variables declaration
+    int arr[50], size, i, j, temp;
+
+    // Prompt for array size
+    std::cout << "Enter array Size: ";
+    std::cin >> size;
+
+    // Input validation
+    if(size > 50) {
+        std::cout << "Size too large. Maximum allowed size is 50." << std::endl;
+        return 1; // Exit the program with an error code
+    }
+
+    // Prompt for array elements
+    std::cout << "Enter array Elements: ";
+    for(i = 0; i < size; i++) {
+        std::cin >> arr[i];
+    }
+
+    // Reverse the array
+    j = size - 1;
+    i = 0;
+    while(i < j) {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        i++;
+        j--;
+    }
+
+    // Output the reversed array
+    std::cout << "Now reversed array is: ";
+    for(i = 0; i < size; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout <<std::endl;
+   
+}

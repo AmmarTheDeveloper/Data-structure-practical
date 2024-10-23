@@ -1,0 +1,39 @@
+#include <iostream>
+
+int main() {
+    int i, a[10], temp, j;
+
+    // Input 10 numbers
+    std::cout << "Enter any 10 numbers in the array: \n";
+    for(i = 0; i < 10; i++) {
+        std::cin >> a[i];
+    }
+
+    // Output before sorting
+    std::cout << "\nData before sorting:\n";
+    for(j = 0; j < 10; j++) {
+        std::cout << a[j] << " ";
+    }
+    std::cout << std::endl;
+
+    // Sort the elements using bubble sort
+    for(i = 0; i < 10 - 1; i++) { // Loop for each pass
+        for(j = 0; j < 10 - i - 1; j++) { // Bubble up the largest element
+            if(a[j] > a[j + 1]) {
+                // Swap elements
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+
+    // Output after sorting
+    std::cout << "Data after sorting:\n";
+    for(i = 0; i < 10; i++) {
+        std::cout << a[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}

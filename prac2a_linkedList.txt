@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+// Node structure
+struct Node {
+    int data;
+    Node* next;
+};
+
+// Function to create a new node
+Node* createNode(int data) {
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = NULL;  // Replace nullptr with NULL
+    return newNode;
+}
+
+// Function to insert a node at the end of the linked list
+void insertNode(Node*& head, int data) {
+    Node* newNode = createNode(data);
+    if (head == NULL) {  // Replace nullptr with NULL
+        head = newNode;
+    } else {
+        Node* temp = head;
+        while (temp->next != NULL) {  // Replace nullptr with NULL
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+}
+
+// Recursive function to display linked list in reverse order
+void displayReverse(Node* head) {
+    if (head == NULL) {  // Replace nullptr with NULL
+        return;
+    }
+    displayReverse(head->next); // Recursive call
+    cout << head->data << " ";  // Print after returning from recursion
+}
+
+int main() {
+    Node* head = NULL;  // Replace nullptr with NULL
+    int n, data;
+
+    // Input the number of nodes
+    cout << "Enter the number of nodes: ";
+    cin >> n;
+
+    // Input node elements and create the linked list
+    for (int i = 0; i < n; ++i) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> data;
+        insertNode(head, data);
+    }
+
+    // Display the linked list in reverse order
+    cout << "Linked list in reverse order: ";
+    displayReverse(head);
+    cout << endl;
+
+    return 0;
+}
